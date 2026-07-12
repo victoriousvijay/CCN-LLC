@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { Zap, Mail, ArrowRight, Shield, Globe, ExternalLink } from "lucide-react";
+import { Zap, Mail, ArrowRight, Shield, Globe, ExternalLink, MapPin, Phone } from "lucide-react";
 
 interface FooterProps {
   onChangePage?: (page: string) => void;
@@ -35,10 +35,6 @@ export default function Footer({ onChangePage }: FooterProps) {
           <p className="text-xs text-text-secondary max-w-sm leading-relaxed">
             Core Connect Network LLC is a leading independent telecom comparison and consulting platform. We aggregate regional databases to advise home owners and businesses on the best connectivity packages.
           </p>
-          <div className="flex items-center gap-2 text-xs text-text-secondary">
-            <Shield className="h-4 w-4 text-primary" />
-            <span>Authorized Telecom Advisor ID: CCN-2026-991A</span>
-          </div>
         </div>
 
         {/* Column 2: Quick Links */}
@@ -70,38 +66,33 @@ export default function Footer({ onChangePage }: FooterProps) {
           </ul>
         </div>
 
-        {/* Column 3: Newsletter capture */}
+        {/* Column 3: Contact Details */}
         <div className="space-y-4">
           <h4 className="font-display font-bold text-text-primary text-xs uppercase tracking-wider">
-            Telecom Bulletins
+            Company Contact
           </h4>
-          <p className="text-xs text-text-secondary leading-relaxed">
-            Get notified of state rate updates, carrier contract purges, and local fiber expansion schedules.
-          </p>
-
-          {subscribed ? (
-            <div className="p-3 bg-primary/5 rounded-xl text-xs text-primary font-semibold text-center animate-fade-in-up">
-              Thanks! You've been subscribed.
-            </div>
-          ) : (
-            <form onSubmit={handleSubscribe} className="flex gap-2">
-              <input
-                type="email"
-                required
-                placeholder="advisor@company.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 min-w-0 bg-bg border border-border-custom px-3 py-2 text-xs rounded-lg text-text-primary placeholder:text-text-secondary/30 focus:border-primary focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="bg-primary hover:bg-primary/95 text-white p-2 rounded-lg cursor-pointer"
-                title="Subscribe"
-              >
-                <ArrowRight className="h-4 w-4" />
-              </button>
-            </form>
-          )}
+          <ul className="space-y-3.5 text-xs text-text-secondary leading-relaxed">
+            <li className="flex items-start gap-2">
+              <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+              <span>
+                Core Connect Network LLC<br />
+                1200 Avenue of the Americas, Suite 1500<br />
+                New York, NY 10036
+              </span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4 text-primary shrink-0" />
+              <a href="mailto:info@coreconnectnetwork.com" className="hover:text-primary transition-colors">
+                info@coreconnectnetwork.com
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-primary shrink-0" />
+              <a href="tel:8005550199" className="hover:text-primary transition-colors">
+                (800) 555-0199
+              </a>
+            </li>
+          </ul>
         </div>
 
       </div>
@@ -112,7 +103,7 @@ export default function Footer({ onChangePage }: FooterProps) {
         {/* Compliance Boilerplate */}
         <div className="text-[10px] text-text-secondary/60 leading-relaxed space-y-3 mb-8">
           <p>
-            <strong>Advisory Disclaimer:</strong> Core Connect Network LLC is a privately owned and operated marketing platform. All trademarks, logos, and brand names of Spectrum, AT&T, Verizon, Xfinity, Frontier, EarthLink, Optimum, and Cox are the exclusive property of their respective owners. Mention of these services does not imply direct carrier endorsement, affiliation, or sponsorship. Actual connection speeds, latencies, and promotion availability vary by street address and technical parameters. All prices, terms, contract structures, and promo details listed are subject to final credit approval and carrier policy modifications.
+            <strong>Advisory Disclaimer:</strong> Core Connect Network LLC is a privately owned and operated marketing platform. All trademarks, logos, and brand names of national and regional telecom carriers are the exclusive property of their respective owners. Mention of services does not imply direct carrier endorsement, affiliation, or sponsorship. Actual connection speeds, latencies, and promotion availability vary by street address and technical parameters. All prices, terms, contract structures, and promo details listed are subject to final credit approval and carrier policy modifications.
           </p>
           <p>
             © {new Date().getFullYear()} Core Connect Network LLC. All rights reserved. Built for authorized marketing deployment.

@@ -10,6 +10,7 @@ import Loader from "./components/Loader";
 import AdvantageCard from "./components/AdvantageCard";
 import ServiceCard from "./components/ServiceCard";
 import Interactive3DCursor from "./components/Interactive3DCursor";
+import FiberPlansHomepage from "./components/FiberPlansHomepage";
 import { PrivacyPolicy, TermsAndConditions } from "./components/LegalPages";
 import { PROVIDERS_LIST } from "./data";
 import { InternetPlan } from "./types";
@@ -212,6 +213,13 @@ export default function App() {
 
               </div>
             </section>
+
+            {/* 3. FIBER-POWERED PLANS SPECUAL SECTION */}
+            <FiberPlansHomepage onSelectPlan={(planId, planName) => {
+              setSelectedPlanId(planId);
+              setSelectedPlanName(planName);
+              handlePageChange("checker");
+            }} />
 
             {/* 4. WHY CHOOSE CORE CONNECT */}
             <motion.section
@@ -588,7 +596,7 @@ export default function App() {
                     {
                       id: "faq-1",
                       q: "How does Core Connect Network determine available plans in my area?",
-                      a: "We partner directly with leading national telecom carriers (including AT&T, Spectrum, Verizon, and Xfinity) to aggregate real-time coverage databases. When you enter your address or ZIP code, we check active cable routes, fiber lines, and wireless transmitter ranges to deliver precise, available offerings at your specific door."
+                      a: "We integrate directly with active infrastructure databases to aggregate regional coverage mappings in real-time. When you enter your address or ZIP code, we check active regional cable routes, fiber lines, and wireless transmitter ranges to deliver precise, available offerings at your specific door."
                     },
                     {
                       id: "faq-2",
@@ -603,7 +611,7 @@ export default function App() {
                     {
                       id: "faq-4",
                       q: "Do I have to sign an annual contract to get these deals?",
-                      a: "Many modern providers have moved to monthly billing with zero contracts (like Spectrum and AT&T Fiber). However, some promotions from Xfinity or business connections from Frontier still utilize 1-year or 2-year service agreements in exchange for fixed pricing guarantees. We explicitly highlight contract status on every single plan card."
+                      a: "Many modern network plans have moved to monthly billing with zero contracts (such as Core Connect Fiber). However, some commercial connections still utilize 1-year or 2-year service agreements in exchange for fixed pricing guarantees. We explicitly highlight contract status on every single plan card."
                     },
                     {
                       id: "faq-5",

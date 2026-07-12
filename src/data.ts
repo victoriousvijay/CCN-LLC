@@ -2,60 +2,32 @@ import { InternetPlan, Provider, Testimonial, FAQItem } from "./types";
 
 export const PROVIDERS_LIST: Provider[] = [
   {
-    name: "Spectrum",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/3/30/Spectrum_logo.svg",
-    rating: 4.2,
-    tech: ["Cable", "Fiber"],
+    name: "Core Connect Fiber",
+    logo: "",
+    rating: 4.8,
+    tech: ["Fiber"],
     coverageZIPs: ["90001", "10001", "30301", "60601", "77001", "33101", "75201"]
   },
   {
-    name: "AT&T",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/c/cc/AT%26T_logo_2016.svg",
-    rating: 4.6,
-    tech: ["Fiber", "5G Home", "DSL"],
+    name: "Core Connect Cable",
+    logo: "",
+    rating: 4.5,
+    tech: ["Cable"],
     coverageZIPs: ["90001", "30301", "77001", "75201", "33101", "60601", "85001"]
   },
   {
-    name: "Verizon",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Verizon_2015_logo.svg",
-    rating: 4.7,
-    tech: ["Fiber", "5G Home"],
+    name: "Core Connect 5G Wireless",
+    logo: "",
+    rating: 4.6,
+    tech: ["5G Home"],
     coverageZIPs: ["10001", "60601", "19101", "02101", "20001", "33101"]
   },
   {
-    name: "Xfinity",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/d/df/Xfinity_Logo.svg",
-    rating: 4.3,
-    tech: ["Cable", "Fiber"],
+    name: "Core Connect Elite Business",
+    logo: "",
+    rating: 4.9,
+    tech: ["Fiber", "Cable"],
     coverageZIPs: ["10001", "60601", "02101", "94101", "98101", "80201", "19101"]
-  },
-  {
-    name: "Frontier",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Frontier_Communications_logo.svg",
-    rating: 4.1,
-    tech: ["Fiber", "DSL"],
-    coverageZIPs: ["90210", "33101", "75201", "90001", "85001"]
-  },
-  {
-    name: "EarthLink",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Earthlink_Logo_new.png",
-    rating: 4.4,
-    tech: ["Fiber", "DSL", "Cable"],
-    coverageZIPs: ["10001", "90001", "60601", "77001", "30301", "33101"]
-  },
-  {
-    name: "Optimum",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/87/Optimum_logo_current.svg",
-    rating: 3.9,
-    tech: ["Cable", "Fiber"],
-    coverageZIPs: ["10001", "07001", "11701", "10501", "06801"]
-  },
-  {
-    name: "Cox",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Cox_Communications_logo.svg",
-    rating: 4.0,
-    tech: ["Cable", "Fiber"],
-    coverageZIPs: ["85001", "92101", "89101", "70101", "67201", "23501"]
   }
 ];
 
@@ -64,7 +36,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "home-starter-fiber",
     name: "Essential Fiber 300",
-    provider: "AT&T",
+    provider: "Core Connect Network",
     speed: "300 Mbps",
     speedMbps: 300,
     price: 55,
@@ -83,8 +55,8 @@ export const INTERNET_PLANS: InternetPlan[] = [
   },
   {
     id: "home-value-cable",
-    name: "Spectrum Internet 500",
-    provider: "Spectrum",
+    name: "Core Connect 500",
+    provider: "Core Connect Network",
     speed: "500 Mbps",
     speedMbps: 500,
     price: 49.99,
@@ -103,8 +75,8 @@ export const INTERNET_PLANS: InternetPlan[] = [
   },
   {
     id: "home-super-fiber",
-    name: "Fios Gigabit Plan",
-    provider: "Verizon",
+    name: "Core Connect Gigabit",
+    provider: "Core Connect Network",
     speed: "1 Gbps",
     speedMbps: 1000,
     price: 89.99,
@@ -123,8 +95,8 @@ export const INTERNET_PLANS: InternetPlan[] = [
   },
   {
     id: "home-ultra-fiber",
-    name: "Hyper-Gig 2.0",
-    provider: "AT&T",
+    name: "Core Connect Hyper-Gig 2G",
+    provider: "Core Connect Network",
     speed: "2 Gbps",
     speedMbps: 2000,
     price: 110,
@@ -134,7 +106,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
       "Symmetrical 2 Gbps speeds",
       "Next-gen Wi-Fi 6E gateway included",
       "Low latency for ultra-gaming & large file transfers",
-      "Unlimited data on AT&T ActiveArmor security"
+      "Unlimited data with active network security guard"
     ],
     popular: false,
     contract: "Month-to-month",
@@ -144,7 +116,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "home-basic-cable",
     name: "Connect More 150",
-    provider: "Xfinity",
+    provider: "Core Connect Network",
     speed: "150 Mbps",
     speedMbps: 150,
     price: 29.99,
@@ -154,17 +126,17 @@ export const INTERNET_PLANS: InternetPlan[] = [
       "Great for 1-3 devices",
       "12-month promo pricing",
       "Flexible self-install option",
-      "Access to millions of Xfinity Wi-Fi hotspots"
+      "Access to millions of Core Connect Wi-Fi hotspots"
     ],
     popular: false,
-    contract: "1-Year Agreement",
-    installation: "Self-install ($0) or Pro ($39.99)",
-    dataLimit: "1.2 TB (Unlimited upgrade available)"
+    contract: "Month-to-month",
+    installation: "Self-install ($0) or Pro ($19.99)",
+    dataLimit: "Unlimited"
   },
   {
     id: "home-unlimited-5g",
     name: "5G Home Internet Plus",
-    provider: "Verizon",
+    provider: "Core Connect Network",
     speed: "300 Mbps",
     speedMbps: 300,
     price: 45,
@@ -174,7 +146,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
       "No lines to install, instant setup",
       "Consistent 300 Mbps wireless speed",
       "Free 5G receiver and Wi-Fi hub",
-      "Discounted with Verizon Mobile Unlimited plans"
+      "Discounted with Core Connect Mobile Unlimited plans"
     ],
     popular: false,
     contract: "Month-to-month",
@@ -186,7 +158,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "business-starter-fiber",
     name: "Business Fiber 300",
-    provider: "Frontier",
+    provider: "Core Connect Network",
     speed: "300 Mbps",
     speedMbps: 300,
     price: 69.99,
@@ -199,14 +171,14 @@ export const INTERNET_PLANS: InternetPlan[] = [
       "99.9% uptime SLA guarantee"
     ],
     popular: false,
-    contract: "1 or 2-Year Contract",
+    contract: "Month-to-month",
     installation: "Professional business installation",
     dataLimit: "Unlimited"
   },
   {
     id: "business-growth-cable",
-    name: "Spectrum Business Internet 1G",
-    provider: "Spectrum",
+    name: "Business Cable 1G",
+    provider: "Core Connect Network",
     speed: "1 Gbps",
     speedMbps: 1000,
     price: 139.99,
@@ -226,7 +198,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "business-enterprise-fiber",
     name: "Elite Business Fiber 1G",
-    provider: "AT&T",
+    provider: "Core Connect Network",
     speed: "1 Gbps",
     speedMbps: 1000,
     price: 175,
@@ -239,14 +211,14 @@ export const INTERNET_PLANS: InternetPlan[] = [
       "Cybersecurity threat blocking and DNS shield"
     ],
     popular: true,
-    contract: "2-Year Agreement",
+    contract: "Month-to-month",
     installation: "Free enterprise setup",
     dataLimit: "Unlimited"
   },
   {
     id: "business-premium-fios",
-    name: "Fios Business Gigabit",
-    provider: "Verizon",
+    name: "Enterprise Business Gigabit",
+    provider: "Core Connect Network",
     speed: "940 Mbps",
     speedMbps: 940,
     price: 129.99,
@@ -256,10 +228,10 @@ export const INTERNET_PLANS: InternetPlan[] = [
       "Symmetrical fiber-optic performance",
       "Optimized for running POS, cloud apps & heavy transfers",
       "Dynamic Wi-Fi range extender included",
-      "Exclusive Verizon Business Rewards perks"
+      "Exclusive Business Rewards perks"
     ],
     popular: false,
-    contract: "1-Year Agreement",
+    contract: "Month-to-month",
     installation: "Free setup with online signup",
     dataLimit: "Unlimited"
   }
@@ -270,7 +242,7 @@ export const TESTIMONIALS_LIST: Testimonial[] = [
     id: "t1",
     name: "Sarah Jenkins",
     role: "Freelance Creative Director",
-    content: "Core Connect Network helped me compare 4 different fiber providers in my neighborhood. I selected AT&T Fiber 1G, and their comparison tool saved me at least $30 a month while getting twice the speed I had before. Genuinely outstanding advisor!",
+    content: "Core Connect Network helped me analyze different high-speed options in my neighborhood. I selected the Essential Fiber 300 plan, and their expert interface saved me at least $30 a month while getting twice the speed I had before. Genuinely outstanding experience!",
     rating: 5,
     verified: true,
     location: "Austin, TX",
@@ -280,7 +252,7 @@ export const TESTIMONIALS_LIST: Testimonial[] = [
     id: "t2",
     name: "Michael Chen",
     role: "Co-Founder, Slate Studio",
-    content: "We needed dedicated enterprise connection with reliable static IPs for our small design agency. Core Connect's business advisors laid out all options side-by-side and secured us an exclusive rate with Verizon Business Fios. 10/10 experience.",
+    content: "We needed dedicated enterprise connection with reliable static IPs for our small design agency. Core Connect's business advisors laid out all options side-by-side and secured us an exclusive rate on Elite Business Fiber. 10/10 experience.",
     rating: 5,
     verified: true,
     location: "Boston, MA",
@@ -290,7 +262,7 @@ export const TESTIMONIALS_LIST: Testimonial[] = [
     id: "t3",
     name: "Elena Rodriguez",
     role: "WFH Financial Analyst",
-    content: "As someone working with large data models from home, stable latency is critical. I used the ZIP checker and found Xfinity Cable wasn't my only option—Spectrum had Fiber nearby! The installation was set up in minutes. Highly recommend checking before buying.",
+    content: "As someone working with large data models from home, stable latency is critical. I used the ZIP checker and found there was an active Fiber connection route nearby! The installation was set up in minutes. Highly recommend checking before buying.",
     rating: 5,
     verified: true,
     location: "Miami, FL",
@@ -300,7 +272,7 @@ export const TESTIMONIALS_LIST: Testimonial[] = [
     id: "t4",
     name: "David Vance",
     role: "Father of Three & Streamer",
-    content: "Our household streams in 4K on multiple screens while I stream gaming on Twitch. Core Connect advised us on Cox's Gigabit Bundle. Savings are real, and no hidden fees cropped up. It was exactly as quoted.",
+    content: "Our household streams in 4K on multiple screens while I stream gaming on Twitch. Core Connect advised us on our high-speed Fiber Bundle. Savings are real, and no hidden fees cropped up. It was exactly as quoted.",
     rating: 4,
     verified: true,
     location: "Phoenix, AZ",
@@ -312,7 +284,7 @@ export const FAQ_LIST: FAQItem[] = [
   {
     id: "faq-1",
     question: "How does Core Connect Network determine available plans in my area?",
-    answer: "We partner directly with leading national telecom carriers (including AT&T, Spectrum, Verizon, and Xfinity) to aggregate real-time coverage databases. When you enter your address or ZIP code, we check active cable routes, fiber lines, and wireless transmitter ranges to deliver precise, available offerings at your specific door.",
+    answer: "We integrate directly with active infrastructure databases to aggregate regional coverage mappings in real-time. When you enter your address or ZIP code, we check active regional cable routes, fiber lines, and wireless transmitter ranges to deliver precise, available offerings at your specific door.",
     category: "plans"
   },
   {
@@ -330,13 +302,13 @@ export const FAQ_LIST: FAQItem[] = [
   {
     id: "faq-4",
     question: "Do I have to sign an annual contract to get these deals?",
-    answer: "Many modern providers have moved to monthly billing with zero contracts (like Spectrum and AT&T Fiber). However, some promotions from Xfinity or business connections from Frontier still utilize 1-year or 2-year service agreements in exchange for fixed pricing guarantees. We explicitly highlight contract status on every single plan card.",
+    answer: "Many modern network plans have moved to monthly billing with zero contracts (such as Core Connect Fiber). However, some commercial connections still utilize 1-year or 2-year service agreements in exchange for fixed pricing guarantees. We explicitly highlight contract status on every single plan card.",
     category: "plans"
   },
   {
     id: "faq-5",
     question: "How long does installation take once I request a plan?",
-    answer: "If your address already has active lines, many providers can ship a Self-Installation Kit which arrives in 2-3 business days and takes under 15 minutes to configure. If a professional technician is required to run new fiber or coaxial cables, appointments are typically scheduled within 48 to 72 hours of your submission.",
+    answer: "If your address already has active lines, many plans can ship a Self-Installation Kit which arrives in 2-3 business days and takes under 15 minutes to configure. If a professional technician is required to run new fiber or coaxial cables, appointments are typically scheduled within 48 to 72 hours of your submission.",
     category: "installation"
   }
 ];

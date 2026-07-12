@@ -67,7 +67,7 @@ export function PrivacyPolicy({ onBack }: LegalPageProps) {
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-sm">
               <li>To determine regional broadband plan availability based on your physical address coordinates.</li>
-              <li>To connect you with certified advisors representing major telecom carriers (including AT&T Fiber, Spectrum, Verizon Fios, and Xfinity).</li>
+              <li>To connect you with certified advisors representing major national high-speed broadband and fiber networks.</li>
               <li>To evaluate local network metrics, handle technical diagnostics, and improve client lead management systems.</li>
               <li>To personalize interactive AI advisory assistance inside our dynamic chatbot platform.</li>
             </ul>
@@ -192,7 +192,7 @@ export function TermsAndConditions({ onBack }: LegalPageProps) {
             <ul className="list-disc pl-5 space-y-1.5 text-sm">
               <li>We consolidate national coverage mapping data to give users estimates of available speeds and rates at given addresses.</li>
               <li><strong>No Binding Quotes:</strong> All rates, contract structures, fees, and promotional details displayed are estimations based on regional data feeds and are subject to final carrier confirmation.</li>
-              <li><strong>No Carrier Liability:</strong> We do not provide the physical fiber, cable, or mobile network infrastructure ourselves. All physical service performance, billing issues, installation delays, or hardware defects are strictly between you and the chosen service provider (e.g. Spectrum, AT&T, Verizon).</li>
+              <li><strong>No Carrier Liability:</strong> We do not provide the physical fiber, cable, or mobile network infrastructure ourselves. All physical service performance, billing issues, installation delays, or hardware defects are strictly between you and the physical connection service provider.</li>
             </ul>
           </section>
 

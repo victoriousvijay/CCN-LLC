@@ -12,7 +12,7 @@ const STEPS = [
   {
     num: "02",
     title: "Compare Providers",
-    desc: "Inspect Spectrum, AT&T, Verizon, and Xfinity side-by-side using our transparent pricing matrices.",
+    desc: "Compare speed-per-dollar ratios across multiple high-performance connection tiers side-by-side.",
     icon: Search,
     color: "from-cyan-500 to-teal-500"
   },

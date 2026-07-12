@@ -53,51 +53,41 @@ export default function AvailabilityChecker({
     if (data.postal_code && typeof data.postal_code === "string" && data.postal_code.trim().length >= 3) {
       return data.postal_code.trim();
     }
+    if (data.principalSubdivisionCode && typeof data.principalSubdivisionCode === "string" && data.principalSubdivisionCode.trim().length >= 3) {
+      return data.principalSubdivisionCode.trim();
+    }
 
     // 2. OpenStreetMap address structure
     if (data.address && typeof data.address === "object") {
-      const pc = data.address.postcode || data.address.postalCode || data.address.zip || data.address.postal_code || data.address.pincode;
+      const pc = data.address.postcode || data.address.postalCode || data.address.zip || data.address.postal_code || data.address.pincode || data.address.state_code;
       if (pc && typeof pc === "string" && pc.trim().length >= 3) {
         return pc.trim();
       }
     }
 
-    // 3. BigDataCloud localityInfo lists (both informative and administrative blocks)
-    const infoLists = [data.localityInfo?.informative, data.localityInfo?.administrative];
-    for (const list of infoLists) {
-      if (Array.isArray(list)) {
-        // Look for items explicitly described as "postal code" or containing postal-like 5/6 digit structures
-        const foundMatch = list.find((item: any) => {
-          if (!item || typeof item !== "object") return false;
-          const desc = String(item.description || "").toLowerCase();
-          const name = String(item.name || "").trim();
-          return (
-            desc.includes("postal") ||
-            desc.includes("zip") ||
-            desc.includes("pin") ||
-            /^[1-9][0-9]{5}$/.test(name) ||  // Indian 6-digit PIN code
-            /^[0-9]{5}$/.test(name)          // US 5-digit ZIP code
-          );
-        });
-        if (foundMatch && foundMatch.name) {
-          return String(foundMatch.name).trim();
-        }
+    // 3. BigDataCloud localityInfo lists
+    if (data.localityInfo && Array.isArray(data.localityInfo.informative)) {
+      const foundMatch = data.localityInfo.informative.find((item: any) => {
+        if (!item) return false;
+        const desc = String(item.description || "").toLowerCase();
+        return desc.includes("postal") || desc.includes("zip") || desc.includes("pin") || desc.includes("subdivision") || desc.includes("state");
+      });
+      if (foundMatch && foundMatch.name) {
+        return String(foundMatch.name).trim();
       }
     }
 
-    // 4. Safe Deep Recursive Scan fallback
+    // 4. Recursive search fallback
     const recursiveScan = (obj: any, depth = 0): string | null => {
       if (depth > 6 || !obj) return null;
 
       if (typeof obj === "string") {
         const clean = obj.trim();
-        // Indian PIN Code (6 digits)
+        // Indian PIN Code, US ZIP, ISO codes (like IN-RJ), etc.
         if (/^[1-9][0-9]{5}$/.test(clean)) return clean;
-        // US ZIP code (5 digits)
         if (/^[0-9]{5}$/.test(clean)) return clean;
-        // Canadian Postal Code
+        if (/^[A-Z]{2}-[A-Z0-9]{1,4}$/i.test(clean)) return clean; // matches "IN-RJ"
         if (/^[A-Z][0-9][A-Z]\s?[0-9][A-Z][0-9]$/i.test(clean)) return clean;
-        // UK Postal Code
         if (/^[A-Z]{1,2}[0-9][A-Z0-9]?\s?[0-9][A-Z]{2}$/i.test(clean)) return clean;
       }
 
@@ -115,22 +105,27 @@ export default function AvailabilityChecker({
         }
       } else if (typeof obj === "object") {
         const keys = Object.keys(obj);
-        // Prioritize keys containing post, zip, pin, or code
         for (const key of keys) {
           const kLower = key.toLowerCase();
-          if (kLower.includes("post") || kLower.includes("zip") || kLower.includes("pin") || kLower.includes("code")) {
+          if (
+            kLower.includes("post") || 
+            kLower.includes("zip") || 
+            kLower.includes("pin") || 
+            kLower.includes("code") || 
+            kLower.includes("subdivision")
+          ) {
             const val = obj[key];
             if (typeof val === "string" || typeof val === "number") {
               const valStr = String(val).trim();
               if (/^[0-9]{5,6}$/.test(valStr) || /^[A-Z0-9\s-]{3,10}$/i.test(valStr)) {
-                if (!/^[A-Z]{2}$/i.test(valStr)) { // avoid matching state/country code e.g. "IN"
+                // Avoid matching simple 2-character country codes (like "IN" or "US")
+                if (!/^[A-Z]{2}$/i.test(valStr)) {
                   return valStr;
                 }
               }
             }
           }
         }
-        // Deep search remaining keys
         for (const key of keys) {
           if (typeof obj[key] === "object") {
             const found = recursiveScan(obj[key], depth + 1);
