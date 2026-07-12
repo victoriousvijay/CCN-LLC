@@ -67,7 +67,7 @@ export function PrivacyPolicy({ onBack }: LegalPageProps) {
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-sm">
               <li>To determine regional broadband plan availability based on your physical address coordinates.</li>
-              <li>To connect you with certified advisors representing major partner carriers (including AT&T Fiber, Spectrum, Verizon Fios, and Xfinity).</li>
+              <li>To connect you with certified advisors representing major telecom carriers (including AT&T Fiber, Spectrum, Verizon Fios, and Xfinity).</li>
               <li>To evaluate local network metrics, handle technical diagnostics, and improve client lead management systems.</li>
               <li>To personalize interactive AI advisory assistance inside our dynamic chatbot platform.</li>
             </ul>

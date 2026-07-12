@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import AdvantageCard from "./components/AdvantageCard";
 import ServiceCard from "./components/ServiceCard";
+import Interactive3DCursor from "./components/Interactive3DCursor";
 import { PrivacyPolicy, TermsAndConditions } from "./components/LegalPages";
 import { PROVIDERS_LIST } from "./data";
 import { InternetPlan } from "./types";
@@ -81,7 +82,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-bg relative">
+    <div className="min-h-screen flex flex-col justify-between bg-bg relative overflow-x-hidden w-full max-w-full">
+      
+      {/* Premium Interactive 3D Cursor for desktop */}
+      <Interactive3DCursor />
       
       {/* Loading overlay with high-tech loader */}
       {isPageLoading && (
@@ -104,7 +108,7 @@ export default function App() {
         onChangePage={handlePageChange}
       />
 
-      <main className="flex-1">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {activePage === "home" && (
           <motion.div
             key="home"
@@ -146,6 +150,7 @@ export default function App() {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a
                       href="tel:+18005550199"
+                      data-cursor="call"
                       className="flex items-center justify-center gap-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 px-8 py-4 font-bold text-emerald-400 hover:bg-emerald-500/20 transition-all text-sm hover:scale-[1.02] active:scale-95 duration-200"
                     >
                       <Phone className="h-4 w-4 animate-bounce" />
@@ -154,6 +159,7 @@ export default function App() {
 
                     <button
                       onClick={() => handlePageChange("checker")}
+                      data-cursor="verify"
                       className="flex items-center justify-center gap-2 rounded-2xl bg-primary px-8 py-4 font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/95 transition-all text-sm cursor-pointer hover:scale-[1.02] active:scale-95 duration-200"
                     >
                       <span>Check Availability</span>
@@ -162,6 +168,7 @@ export default function App() {
 
                     <button
                       onClick={() => handlePageChange("plans")}
+                      data-cursor="explore"
                       className="flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white hover:bg-white/10 hover:border-white/40 transition-all text-sm cursor-pointer hover:scale-[1.02] active:scale-95 duration-200"
                     >
                       <span>Compare Plans</span>
@@ -518,7 +525,7 @@ export default function App() {
           >
             {/* 7. HOW IT WORKS */}
             <div className="py-8">
-              <HowItWorks />
+              <HowItWorks onNavigateToChecker={() => handlePageChange("checker")} />
             </div>
 
             {/* CTA SECTION */}

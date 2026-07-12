@@ -1,6 +1,6 @@
 {
   "name": "Core Connect Network",
   "description": "A premium, high-speed internet, TV, and business connectivity advisor and comparison platform with an AI assistant.",
-  "requestFramePermissions": [],
+  "requestFramePermissions": ["geolocation"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

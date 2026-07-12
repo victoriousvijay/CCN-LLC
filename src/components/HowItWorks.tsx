@@ -32,7 +32,11 @@ const STEPS = [
   }
 ];
 
-export default function HowItWorks() {
+interface HowItWorksProps {
+  onNavigateToChecker?: () => void;
+}
+
+export default function HowItWorks({ onNavigateToChecker }: HowItWorksProps) {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
@@ -108,13 +112,13 @@ export default function HowItWorks() {
 
         {/* CTA underneath the stepper */}
         <div className="mt-16 text-center">
-          <a
-            href="#checker"
-            className="inline-flex items-center gap-2 rounded-2xl bg-primary px-8 py-4 font-bold text-white shadow-md shadow-primary/10 hover:bg-primary/95 transition-all text-sm cursor-pointer"
+          <button
+            onClick={onNavigateToChecker}
+            className="inline-flex items-center gap-2 rounded-2xl bg-primary px-8 py-4 font-bold text-white shadow-md shadow-primary/10 hover:bg-primary/95 transition-all text-sm cursor-pointer border-0"
           >
             <span>Launch Checker Now</span>
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </button>
         </div>
 
       </div>

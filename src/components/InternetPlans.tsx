@@ -293,7 +293,7 @@ export default function InternetPlans({ onSelectPlan }: InternetPlansProps) {
             <Info className="h-10 w-10 text-text-secondary mx-auto mb-4" />
             <h4 className="text-lg font-bold text-text-primary mb-2">No Plans Match Speed Tier</h4>
             <p className="text-sm text-text-secondary px-6">
-              Our partner networks do not support {speedFilter} Mbps+ plans in some sub-areas. Try choosing "All Speeds" or checking availability.
+              National fiber and broadband grids do not support {speedFilter} Mbps+ plans in some sub-areas. Try choosing "All Speeds" or checking availability.
             </p>
           </div>
         )}

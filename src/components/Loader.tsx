@@ -25,13 +25,19 @@ const Loader = () => {
 }
 
 const StyledWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
   #wifi-loader {
     --background: #62abff;
     --front-color: #2986f0;
     --back-color: #c3c8de;
     --text-color: #414856;
-    width: 64px;
-    height: 64px;
+    width: 86px;
+    height: 86px;
     border-radius: 50px;
     position: relative;
     display: flex;
@@ -64,7 +70,7 @@ const StyledWrapper = styled.div`
     stroke: var(--front-color);
   }
 
-  #wifi-loader.circle-outer {
+  #wifi-loader svg.circle-outer {
     height: 86px;
     width: 86px;
   }
@@ -118,6 +124,10 @@ const StyledWrapper = styled.div`
   #wifi-loader .text {
     position: absolute;
     bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    white-space: nowrap;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,6 +150,9 @@ const StyledWrapper = styled.div`
     animation: text-animation76 3.6s ease infinite;
     position: absolute;
     left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
 
   @keyframes circle-outer135 {

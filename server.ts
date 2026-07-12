@@ -18,8 +18,13 @@ let leadsDatabase: any[] = [];
 
 try {
   if (fs.existsSync(LEADS_FILE)) {
-    leadsDatabase = JSON.parse(fs.readFileSync(LEADS_FILE, "utf-8"));
-  } else {
+    const fileContent = fs.readFileSync(LEADS_FILE, "utf-8").trim();
+    if (fileContent && fileContent !== "[]") {
+      leadsDatabase = JSON.parse(fileContent);
+    }
+  }
+  
+  if (!leadsDatabase || !Array.isArray(leadsDatabase) || leadsDatabase.length === 0) {
     leadsDatabase = [
       {
         id: "lead_1",

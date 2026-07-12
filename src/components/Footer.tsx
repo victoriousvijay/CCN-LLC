@@ -20,7 +20,7 @@ export default function Footer({ onChangePage }: FooterProps) {
     <footer className="bg-card border-t border-border-custom pt-20 pb-8 text-sm text-text-secondary relative overflow-hidden">
       
       {/* Footer grid */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         
         {/* Column 1: Brand details */}
         <div className="space-y-4 md:col-span-2">
@@ -70,32 +70,7 @@ export default function Footer({ onChangePage }: FooterProps) {
           </ul>
         </div>
 
-        {/* Column 3: Partner Networks */}
-        <div className="space-y-4">
-          <h4 className="font-display font-bold text-text-primary text-xs uppercase tracking-wider">
-            Partner Networks
-          </h4>
-          <ul className="space-y-2.5 text-xs">
-            <li className="flex items-center gap-1.5">
-              <span>AT&T Fiber</span>
-              <ExternalLink className="h-3 w-3 opacity-40" />
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span>Spectrum Cable</span>
-              <ExternalLink className="h-3 w-3 opacity-40" />
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span>Verizon Fios</span>
-              <ExternalLink className="h-3 w-3 opacity-40" />
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span>Xfinity Internet</span>
-              <ExternalLink className="h-3 w-3 opacity-40" />
-            </li>
-          </ul>
-        </div>
-
-        {/* Column 4: Newsletter capture */}
+        {/* Column 3: Newsletter capture */}
         <div className="space-y-4">
           <h4 className="font-display font-bold text-text-primary text-xs uppercase tracking-wider">
             Telecom Bulletins

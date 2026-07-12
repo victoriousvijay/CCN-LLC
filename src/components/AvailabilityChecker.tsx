@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { Search, MapPin, CheckCircle2, AlertTriangle, ArrowRight, Shield, Cpu, RefreshCw } from "lucide-react";
 
 interface AvailabilityResult {
@@ -27,6 +27,10 @@ export default function AvailabilityChecker({
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AvailabilityResult | null>(null);
 
+  // Geolocation and reverse-geocoding states
+  const [locating, setLocating] = useState(false);
+  const [locatingError, setLocatingError] = useState<string | null>(null);
+
   // Form states for captured Lead
   const [leadName, setLeadName] = useState("");
   const [leadEmail, setLeadEmail] = useState("");
@@ -34,6 +38,205 @@ export default function AvailabilityChecker({
   const [serviceType, setServiceType] = useState<"Internet" | "TV" | "Phone" | "Bundle">("Internet");
   const [submittingLead, setSubmittingLead] = useState(false);
   const [leadSuccess, setLeadSuccess] = useState(false);
+
+  // Helper to extract PIN code / ZIP code / Postal code from geocoding API responses
+  const extractPostalCode = (data: any): string | null => {
+    if (!data) return null;
+
+    // 1. Direct standard properties
+    if (data.postcode && typeof data.postcode === "string" && data.postcode.trim().length >= 3) {
+      return data.postcode.trim();
+    }
+    if (data.postalCode && typeof data.postalCode === "string" && data.postalCode.trim().length >= 3) {
+      return data.postalCode.trim();
+    }
+    if (data.postal_code && typeof data.postal_code === "string" && data.postal_code.trim().length >= 3) {
+      return data.postal_code.trim();
+    }
+
+    // 2. OpenStreetMap address structure
+    if (data.address && typeof data.address === "object") {
+      const pc = data.address.postcode || data.address.postalCode || data.address.zip || data.address.postal_code || data.address.pincode;
+      if (pc && typeof pc === "string" && pc.trim().length >= 3) {
+        return pc.trim();
+      }
+    }
+
+    // 3. BigDataCloud localityInfo lists (both informative and administrative blocks)
+    const infoLists = [data.localityInfo?.informative, data.localityInfo?.administrative];
+    for (const list of infoLists) {
+      if (Array.isArray(list)) {
+        // Look for items explicitly described as "postal code" or containing postal-like 5/6 digit structures
+        const foundMatch = list.find((item: any) => {
+          if (!item || typeof item !== "object") return false;
+          const desc = String(item.description || "").toLowerCase();
+          const name = String(item.name || "").trim();
+          return (
+            desc.includes("postal") ||
+            desc.includes("zip") ||
+            desc.includes("pin") ||
+            /^[1-9][0-9]{5}$/.test(name) ||  // Indian 6-digit PIN code
+            /^[0-9]{5}$/.test(name)          // US 5-digit ZIP code
+          );
+        });
+        if (foundMatch && foundMatch.name) {
+          return String(foundMatch.name).trim();
+        }
+      }
+    }
+
+    // 4. Safe Deep Recursive Scan fallback
+    const recursiveScan = (obj: any, depth = 0): string | null => {
+      if (depth > 6 || !obj) return null;
+
+      if (typeof obj === "string") {
+        const clean = obj.trim();
+        // Indian PIN Code (6 digits)
+        if (/^[1-9][0-9]{5}$/.test(clean)) return clean;
+        // US ZIP code (5 digits)
+        if (/^[0-9]{5}$/.test(clean)) return clean;
+        // Canadian Postal Code
+        if (/^[A-Z][0-9][A-Z]\s?[0-9][A-Z][0-9]$/i.test(clean)) return clean;
+        // UK Postal Code
+        if (/^[A-Z]{1,2}[0-9][A-Z0-9]?\s?[0-9][A-Z]{2}$/i.test(clean)) return clean;
+      }
+
+      if (typeof obj === "number") {
+        const cleanNum = String(obj).trim();
+        if (/^[1-9][0-9]{5}$/.test(cleanNum) || /^[0-9]{5}$/.test(cleanNum)) {
+          return cleanNum;
+        }
+      }
+
+      if (Array.isArray(obj)) {
+        for (const item of obj) {
+          const found = recursiveScan(item, depth + 1);
+          if (found) return found;
+        }
+      } else if (typeof obj === "object") {
+        const keys = Object.keys(obj);
+        // Prioritize keys containing post, zip, pin, or code
+        for (const key of keys) {
+          const kLower = key.toLowerCase();
+          if (kLower.includes("post") || kLower.includes("zip") || kLower.includes("pin") || kLower.includes("code")) {
+            const val = obj[key];
+            if (typeof val === "string" || typeof val === "number") {
+              const valStr = String(val).trim();
+              if (/^[0-9]{5,6}$/.test(valStr) || /^[A-Z0-9\s-]{3,10}$/i.test(valStr)) {
+                if (!/^[A-Z]{2}$/i.test(valStr)) { // avoid matching state/country code e.g. "IN"
+                  return valStr;
+                }
+              }
+            }
+          }
+        }
+        // Deep search remaining keys
+        for (const key of keys) {
+          if (typeof obj[key] === "object") {
+            const found = recursiveScan(obj[key], depth + 1);
+            if (found) return found;
+          }
+        }
+      }
+
+      return null;
+    };
+
+    return recursiveScan(data);
+  };
+
+  const handleUseLocation = () => {
+    if (!navigator.geolocation) {
+      setLocatingError("Geolocation is not supported by your browser");
+      return;
+    }
+    setLocating(true);
+    setLocatingError(null);
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        try {
+          // 1. Fetch using BigDataCloud's free reverse-geocode API
+          const bdcResponse = await fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+          );
+          let bdcData: any = null;
+          if (bdcResponse.ok) {
+            bdcData = await bdcResponse.json();
+          }
+
+          let resolvedZip = extractPostalCode(bdcData);
+          let resolvedAddress = "";
+
+          if (bdcData) {
+            const addressParts = [
+              bdcData.locality,
+              bdcData.city,
+              bdcData.principalSubdivision
+            ].filter(Boolean);
+            if (addressParts.length > 0) {
+              resolvedAddress = addressParts.join(", ");
+            }
+          }
+
+          // 2. Try OSM Nominatim API as a fallback or to complement address metadata
+          if (!resolvedZip || !resolvedAddress) {
+            const nomResponse = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`,
+              {
+                headers: {
+                  "Accept-Language": "en"
+                }
+              }
+            );
+            if (nomResponse.ok) {
+              const nomData = await nomResponse.json();
+              if (!resolvedZip) {
+                resolvedZip = extractPostalCode(nomData);
+              }
+              if (!resolvedAddress && nomData && nomData.display_name) {
+                resolvedAddress = nomData.display_name;
+              }
+            }
+          }
+
+          if (resolvedZip) {
+            // Success! Set ZIP/PIN code
+            setZipCode(resolvedZip.toUpperCase().trim());
+            if (resolvedAddress) {
+              setAddress(resolvedAddress);
+            }
+          } else {
+            setLocatingError("Could not resolve ZIP/PIN code for your exact coordinates.");
+          }
+        } catch (err) {
+          console.error("Error reverse-geocoding position:", err);
+          setLocatingError("Failed to convert coordinates to a postal/PIN code.");
+        } finally {
+          setLocating(false);
+        }
+      },
+      (error) => {
+        console.error("Geolocation acquisition failed:", error);
+        let errorMsg = "Unable to retrieve your location.";
+        if (error.code === error.PERMISSION_DENIED) {
+          errorMsg = "Location permission denied. Please allow location access or try clicking one of the samples below.";
+        } else if (error.code === error.POSITION_UNAVAILABLE) {
+          errorMsg = "Location position is unavailable.";
+        } else if (error.code === error.TIMEOUT) {
+          errorMsg = "Location request timed out.";
+        }
+        setLocatingError(errorMsg);
+        setLocating(false);
+      },
+      { timeout: 8000, enableHighAccuracy: true }
+    );
+  };
+
+  useEffect(() => {
+    handleUseLocation();
+  }, []);
 
   const handleCheck = async (e: FormEvent) => {
     e.preventDefault();
@@ -60,7 +263,7 @@ export default function AvailabilityChecker({
           zipCode,
           address: address || "Specified Location",
           isAvailable: true,
-          providers: ["Spectrum", "AT&T", "Verizon"],
+          providers: ["UltraNet Fiber", "Quantum Connect", "Global Broadband"],
           estimatedSpeeds: ["300 Mbps", "500 Mbps", "1 Gbps"]
         });
       } finally {
@@ -210,9 +413,29 @@ export default function AvailabilityChecker({
                 </div>
 
                 <div>
-                  <label htmlFor="zip-input" className="block text-sm font-semibold text-text-primary mb-2">
-                    ZIP / PIN / Postal Code <span className="text-red-500">*</span>
-                  </label>
+                  <div className="flex justify-between items-center mb-2">
+                    <label htmlFor="zip-input" className="block text-sm font-semibold text-text-primary">
+                      ZIP / PIN / Postal Code <span className="text-red-500">*</span>
+                    </label>
+                    <button
+                      type="button"
+                      onClick={handleUseLocation}
+                      disabled={locating}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary/80 transition-colors focus:outline-none cursor-pointer disabled:opacity-50"
+                    >
+                      {locating ? (
+                        <>
+                          <RefreshCw className="h-3 w-3 animate-spin text-primary" />
+                          <span>Locating...</span>
+                        </>
+                      ) : (
+                        <>
+                          <MapPin className="h-3 w-3" />
+                          <span>Use current location</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
                   <div className="relative">
                     <Search className="absolute left-4 top-3.5 h-5 w-5 text-text-secondary" />
                     <input
@@ -226,8 +449,58 @@ export default function AvailabilityChecker({
                       className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-border-custom bg-card text-text-primary placeholder:text-text-secondary/50 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none font-mono"
                     />
                   </div>
+                  {locatingError && (
+                    <p className="mt-2 text-xs text-red-500 flex items-center gap-1.5 animate-fade-in">
+                      <AlertTriangle className="h-3.5 w-3.5 shrink-0" />
+                      <span>{locatingError}</span>
+                    </p>
+                  )}
                   <p className="mt-2 text-xs text-text-secondary">
-                    Supports any world postal code, PIN code, or zip code (e.g., <span className="font-mono font-bold text-primary">10001, 110001, SW1A 1AA, K1A 0B1</span>).
+                    Supports any world postal code, PIN code, or zip code (e.g., {" "}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setZipCode("10001");
+                        setAddress("New York, NY");
+                      }}
+                      className="font-mono font-bold text-primary hover:underline cursor-pointer focus:outline-none"
+                    >
+                      10001
+                    </button>
+                    ,{" "}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setZipCode("110001");
+                        setAddress("New Delhi, Delhi");
+                      }}
+                      className="font-mono font-bold text-primary hover:underline cursor-pointer focus:outline-none"
+                    >
+                      110001
+                    </button>
+                    ,{" "}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setZipCode("SW1A 1AA");
+                        setAddress("London, England");
+                      }}
+                      className="font-mono font-bold text-primary hover:underline cursor-pointer focus:outline-none"
+                    >
+                      SW1A 1AA
+                    </button>
+                    ,{" "}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setZipCode("K1A 0B1");
+                        setAddress("Ottawa, ON");
+                      }}
+                      className="font-mono font-bold text-primary hover:underline cursor-pointer focus:outline-none"
+                    >
+                      K1A 0B1
+                    </button>
+                    ). Click any to try.
                   </p>
                 </div>
 
@@ -250,7 +523,7 @@ export default function AvailabilityChecker({
                 </div>
                 <div className="space-y-2">
                   <h4 className="font-display font-bold text-lg text-text-primary">
-                    Interrogating Partner Fiber Grids...
+                    Interrogating Fiber Grids...
                   </h4>
                   <p className="text-xs text-text-secondary max-w-sm mx-auto">
                     Scanning regional databases for local fiber, high-speed coaxial layouts, and telecom terminals near location {zipCode}...
