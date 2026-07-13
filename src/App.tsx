@@ -12,6 +12,7 @@ import ServiceCard from "./components/ServiceCard";
 import Interactive3DCursor from "./components/Interactive3DCursor";
 import FiberPlansHomepage from "./components/FiberPlansHomepage";
 import { PrivacyPolicy, TermsAndConditions } from "./components/LegalPages";
+import InteractiveHeroVisual from "./components/InteractiveHeroVisual";
 import { PROVIDERS_LIST } from "./data";
 import { InternetPlan } from "./types";
 import { motion, useScroll, useTransform } from "motion/react";
@@ -208,8 +209,10 @@ export default function App() {
 
                 </div>
 
-                {/* Empty Right Column maintaining original asymmetrical grid alignment */}
-                <div className="hidden lg:block lg:col-span-4 relative" />
+                {/* Interactive Visual Right Column */}
+                <div className="hidden lg:flex lg:col-span-4 relative items-center justify-center w-full">
+                  <InteractiveHeroVisual />
+                </div>
 
               </div>
             </section>
