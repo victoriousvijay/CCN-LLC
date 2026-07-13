@@ -6,28 +6,28 @@ export const PROVIDERS_LIST: Provider[] = [
     logo: "",
     rating: 4.8,
     tech: ["Fiber"],
-    coverageZIPs: ["90001", "10001", "30301", "60601", "77001", "33101", "75201"]
+    coverageZIPs: ["90001", "10001", "30301", "60601", "77001", "33101", "75201", "02111"]
   },
   {
     name: "Core Connect Cable",
     logo: "",
     rating: 4.5,
     tech: ["Cable"],
-    coverageZIPs: ["90001", "30301", "77001", "75201", "33101", "60601", "85001"]
+    coverageZIPs: ["90001", "30301", "77001", "75201", "33101", "60601", "85001", "02111"]
   },
   {
     name: "Core Connect 5G Wireless",
     logo: "",
     rating: 4.6,
     tech: ["5G Home"],
-    coverageZIPs: ["10001", "60601", "19101", "02101", "20001", "33101"]
+    coverageZIPs: ["10001", "60601", "19101", "02101", "20001", "33101", "02111"]
   },
   {
     name: "Core Connect Elite Business",
     logo: "",
     rating: 4.9,
     tech: ["Fiber", "Cable"],
-    coverageZIPs: ["10001", "60601", "02101", "94101", "98101", "80201", "19101"]
+    coverageZIPs: ["10001", "60601", "02101", "94101", "98101", "80201", "19101", "02111"]
   }
 ];
 

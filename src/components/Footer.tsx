@@ -76,14 +76,14 @@ export default function Footer({ onChangePage }: FooterProps) {
               <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
               <span>
                 Core Connect Network LLC<br />
-                1200 Avenue of the Americas, Suite 1500<br />
-                New York, NY 10036
+                68 Harrison Ave Ste 605<br />
+                Boston, MA 02111-1929
               </span>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-primary shrink-0" />
-              <a href="mailto:info@coreconnectnetwork.com" className="hover:text-primary transition-colors">
-                info@coreconnectnetwork.com
+              <a href="mailto:info@coreconnectnet.com" className="hover:text-primary transition-colors">
+                info@coreconnectnet.com
               </a>
             </li>
             <li className="flex items-center gap-2">

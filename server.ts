@@ -81,6 +81,7 @@ const COVERED_ZIPS: Record<string, string[]> = {
   "90210": ["Core Connect Regional", "Core Connect Cable"],
   "19101": ["Core Connect Fiber", "Core Connect Cable"],
   "02101": ["Core Connect Fiber", "Core Connect Cable"],
+  "02111": ["Core Connect Fiber", "Core Connect Cable", "Core Connect 5G Wireless", "Core Connect Premium"],
   "20001": ["Core Connect Fiber"],
   "94101": ["Core Connect Cable"],
   "98101": ["Core Connect Cable"],

@@ -112,7 +112,7 @@ export function PrivacyPolicy({ onBack }: LegalPageProps) {
               <li>Request the complete deletion and purging of all historical database submissions.</li>
             </ul>
             <p className="text-sm pt-1">
-              To exercise these legal options, please utilize the automated chatbot or submit a direct regulatory query to <span className="text-primary font-semibold font-mono">privacy@coreconnectnetwork.com</span>.
+              To exercise these legal options, please utilize the automated chatbot or submit a direct regulatory query to <span className="text-primary font-semibold font-mono">privacy@coreconnectnet.com</span>.
             </p>
           </section>
         </div>
