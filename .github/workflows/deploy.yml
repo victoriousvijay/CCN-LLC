@@ -1,0 +1,48 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Copy build to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          source: "dist/*,package.json,package-lock.json"
+          target: /var/www/coreconnect
+
+      - name: Install runtime deps and restart app
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          script: |
+            export DEBIAN_FRONTEND=noninteractive
+            command -v node >/dev/null 2>&1 || { curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs; }
+            command -v pm2 >/dev/null 2>&1 || npm install -g pm2
+            cd /var/www/coreconnect
+            npm ci --omit=dev
+            NODE_ENV=production PORT=80 pm2 restart coreconnect --update-env \
+              || NODE_ENV=production PORT=80 pm2 start dist/server.cjs --name coreconnect
+            pm2 save
+            pm2 startup systemd -u root --hp /root >/dev/null 2>&1 || true

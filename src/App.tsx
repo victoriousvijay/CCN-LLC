@@ -151,7 +151,7 @@ export default function App() {
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a
-                      href="tel:+18005550199"
+                      href="tel:+18557443810"
                       data-cursor="call"
                       className="flex items-center justify-center gap-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 px-8 py-4 font-bold text-emerald-400 hover:bg-emerald-500/20 transition-all text-sm hover:scale-[1.02] active:scale-95 duration-200"
                     >
@@ -305,11 +305,11 @@ export default function App() {
                     <ArrowRight className="h-4 w-4" />
                   </button>
                   <a
-                    href="tel:+18005550199"
+                    href="tel:+18557443810"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 hover:border-white bg-white/10 px-8 py-4 font-bold text-white hover:bg-white/20 transition-all text-sm"
                   >
                     <Phone className="h-4 w-4" />
-                    <span>Call Advisor (800) 555-0199</span>
+                    <span>Call Advisor +1-855-744-3810</span>
                   </a>
                 </div>
               </div>
@@ -349,11 +349,11 @@ export default function App() {
                     <ArrowRight className="h-4 w-4" />
                   </button>
                   <a
-                    href="tel:+18005550199"
+                    href="tel:+18557443810"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 hover:border-white bg-white/10 px-8 py-4 font-bold text-white hover:bg-white/20 transition-all text-sm"
                   >
                     <Phone className="h-4 w-4" />
-                    <span>Call Advisor (800) 555-0199</span>
+                    <span>Call Advisor +1-855-744-3810</span>
                   </a>
                 </div>
               </div>
@@ -401,11 +401,11 @@ export default function App() {
                     <ArrowRight className="h-4 w-4" />
                   </button>
                   <a
-                    href="tel:+18005550199"
+                    href="tel:+18557443810"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 hover:border-white bg-white/10 px-8 py-4 font-bold text-white hover:bg-white/20 transition-all text-sm"
                   >
                     <Phone className="h-4 w-4" />
-                    <span>Call Advisor (800) 555-0199</span>
+                    <span>Call Advisor +1-855-744-3810</span>
                   </a>
                 </div>
               </div>
@@ -514,11 +514,11 @@ export default function App() {
                     <ArrowRight className="h-4 w-4" />
                   </button>
                   <a
-                    href="tel:+18005550199"
+                    href="tel:+18557443810"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 hover:border-white bg-white/10 px-8 py-4 font-bold text-white hover:bg-white/20 transition-all text-sm"
                   >
                     <Phone className="h-4 w-4" />
-                    <span>Call Advisor (800) 555-0199</span>
+                    <span>Call Advisor +1-855-744-3810</span>
                   </a>
                 </div>
               </div>
@@ -558,11 +558,11 @@ export default function App() {
                     <ArrowRight className="h-4 w-4" />
                   </button>
                   <a
-                    href="tel:+18005550199"
+                    href="tel:+18557443810"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 hover:border-white bg-white/10 px-8 py-4 font-bold text-white hover:bg-white/20 transition-all text-sm"
                   >
                     <Phone className="h-4 w-4" />
-                    <span>Call Advisor (800) 555-0199</span>
+                    <span>Call Advisor +1-855-744-3810</span>
                   </a>
                 </div>
               </div>
@@ -671,11 +671,11 @@ export default function App() {
                     <ArrowRight className="h-4 w-4" />
                   </button>
                   <a
-                    href="tel:+18005550199"
+                    href="tel:+18557443810"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 hover:border-white bg-white/10 px-8 py-4 font-bold text-white hover:bg-white/20 transition-all text-sm"
                   >
                     <Phone className="h-4 w-4" />
-                    <span>Call Advisor (800) 555-0199</span>
+                    <span>Call Advisor +1-855-744-3810</span>
                   </a>
                 </div>
               </div>

@@ -132,11 +132,11 @@ export default function Navbar({ onToggleChat, activePage, onChangePage }: Navba
 
           {/* Phone Action */}
           <a
-            href="tel:+18005550199"
+            href="tel:+18557443810"
             className="flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-primary/10 hover:bg-primary/90 transition-all"
           >
             <Phone className="h-4 w-4" />
-            <span>(800) 555-0199</span>
+            <span>+1-855-744-3810</span>
           </a>
         </div>
 
@@ -225,11 +225,11 @@ export default function Navbar({ onToggleChat, activePage, onChangePage }: Navba
 
           <div className="flex flex-col gap-3">
             <a
-              href="tel:+18005550199"
+              href="tel:+18557443810"
               className="flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-base font-semibold text-white shadow-md"
             >
               <Phone className="h-4 w-4" />
-              <span>Call (800) 555-0199</span>
+              <span>Call +1-855-744-3810</span>
             </a>
             <button
               onClick={() => {

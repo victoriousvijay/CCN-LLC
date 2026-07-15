@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 // Persistent lead database for the full-stack dashboard CRM
 const LEADS_FILE = path.join(process.cwd(), "leads_db.json");

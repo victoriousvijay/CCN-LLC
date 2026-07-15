@@ -88,8 +88,8 @@ export default function Footer({ onChangePage }: FooterProps) {
             </li>
             <li className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-primary shrink-0" />
-              <a href="tel:8005550199" className="hover:text-primary transition-colors">
-                (800) 555-0199
+              <a href="tel:+18557443810" className="hover:text-primary transition-colors">
+                +1-855-744-3810
               </a>
             </li>
           </ul>
