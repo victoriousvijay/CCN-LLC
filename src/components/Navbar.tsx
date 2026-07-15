@@ -42,7 +42,7 @@ export default function Navbar({ onToggleChat, activePage, onChangePage }: Navba
               Core<span className="text-primary">Connect</span>
             </span>
             <span className="block text-[9px] font-semibold tracking-wider uppercase text-text-secondary">
-              Network LLC
+              Networks LLC
             </span>
           </div>
         </div>

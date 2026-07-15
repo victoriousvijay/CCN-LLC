@@ -1,0 +1,28 @@
+[
+  {
+    "id": "lead_1",
+    "name": "Jessica Miller",
+    "email": "j.miller@enterprise.com",
+    "phone": "555-019-2834",
+    "address": "742 Evergreen Terrace",
+    "zipCode": "90210",
+    "selectedPlanId": "fiber-500",
+    "serviceType": "Internet",
+    "notes": "Requested fiber quotes for remote business work.",
+    "status": "Qualified",
+    "createdAt": "2026-07-14T13:56:33.665Z"
+  },
+  {
+    "id": "lead_2",
+    "name": "Marcus Aurelius",
+    "email": "marcus@meditations.org",
+    "phone": "555-442-9981",
+    "address": "100 Via Appia",
+    "zipCode": "10001",
+    "selectedPlanId": "triple-play-ultra",
+    "serviceType": "Bundle",
+    "notes": "Interested in the complete TV + VoIP phone package.",
+    "status": "Contacted",
+    "createdAt": "2026-07-15T01:56:33.666Z"
+  }
+]
