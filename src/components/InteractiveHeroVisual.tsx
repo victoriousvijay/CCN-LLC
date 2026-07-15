@@ -1,8 +1,7 @@
 import { useState, useRef, MouseEvent } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "motion/react";
 import { Wifi, Radio, Cpu, Sparkles, Activity } from "lucide-react";
-import globeImage from "@/assets/images/network_globe_hub_1783928987319.jpg";
-interface Ripple {
+import globeImage from "../assets/images/network_globe_hub_1783928987319.jpg";interface Ripple {
   id: number;
   x: number;
   y: number;
