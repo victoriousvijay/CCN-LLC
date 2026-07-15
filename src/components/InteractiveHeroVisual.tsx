@@ -1,7 +1,7 @@
 import { useState, useRef, MouseEvent } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "motion/react";
 import { Wifi, Radio, Cpu, Sparkles, Activity } from "lucide-react";
-
+import globeImage from "@/assets/images/network_globe_hub_1783928987319.jpg";
 interface Ripple {
   id: number;
   x: number;
@@ -104,14 +104,14 @@ export default function InteractiveHeroVisual() {
         />
 
         {/* Core Image Asset */}
-        <div className="absolute inset-0 select-none p-1.5 overflow-hidden rounded-[32px]">
-          <img
-            src="/src/assets/images/network_globe_hub_1783928987319.jpg"
-            alt="CoreConnect Interactive Globe"
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover rounded-[26px] opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out border border-white/5"
-          />
-        </div>
+       <div className="absolute inset-0 select-none p-1.5 overflow-hidden rounded-[32px]">
+  <img
+    src={globeImage}
+    alt="CoreConnect Interactive Globe"
+    referrerPolicy="no-referrer"
+    className="w-full h-full object-cover rounded-[26px] opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out border border-white/5"
+  />
+</div>
 
         {/* Grid and circuit lines overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none rounded-[32px]" />
