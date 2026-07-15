@@ -2,28 +2,28 @@ import { InternetPlan, Provider, Testimonial, FAQItem } from "./types";
 
 export const PROVIDERS_LIST: Provider[] = [
   {
-    name: "Core Connect Fiber",
+    name: "CoreConnect Fiber",
     logo: "",
     rating: 4.8,
     tech: ["Fiber"],
     coverageZIPs: ["90001", "10001", "30301", "60601", "77001", "33101", "75201", "02111"]
   },
   {
-    name: "Core Connect Cable",
+    name: "CoreConnect Cable",
     logo: "",
     rating: 4.5,
     tech: ["Cable"],
     coverageZIPs: ["90001", "30301", "77001", "75201", "33101", "60601", "85001", "02111"]
   },
   {
-    name: "Core Connect 5G Wireless",
+    name: "CoreConnect 5G Wireless",
     logo: "",
     rating: 4.6,
     tech: ["5G Home"],
     coverageZIPs: ["10001", "60601", "19101", "02101", "20001", "33101", "02111"]
   },
   {
-    name: "Core Connect Elite Business",
+    name: "CoreConnect Elite Business",
     logo: "",
     rating: 4.9,
     tech: ["Fiber", "Cable"],
@@ -36,7 +36,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "home-starter-fiber",
     name: "Essential Fiber 300",
-    provider: "Core Connect Network",
+    provider: "CoreConnect Networks",
     speed: "300 Mbps",
     speedMbps: 300,
     price: 55,
@@ -55,8 +55,8 @@ export const INTERNET_PLANS: InternetPlan[] = [
   },
   {
     id: "home-value-cable",
-    name: "Core Connect 500",
-    provider: "Core Connect Network",
+    name: "CoreConnect 500",
+    provider: "CoreConnect Networks",
     speed: "500 Mbps",
     speedMbps: 500,
     price: 49.99,
@@ -75,8 +75,8 @@ export const INTERNET_PLANS: InternetPlan[] = [
   },
   {
     id: "home-super-fiber",
-    name: "Core Connect Gigabit",
-    provider: "Core Connect Network",
+    name: "CoreConnect Gigabit",
+    provider: "CoreConnect Networks",
     speed: "1 Gbps",
     speedMbps: 1000,
     price: 89.99,
@@ -95,8 +95,8 @@ export const INTERNET_PLANS: InternetPlan[] = [
   },
   {
     id: "home-ultra-fiber",
-    name: "Core Connect Hyper-Gig 2G",
-    provider: "Core Connect Network",
+    name: "CoreConnect Hyper-Gig 2G",
+    provider: "CoreConnect Networks",
     speed: "2 Gbps",
     speedMbps: 2000,
     price: 110,
@@ -116,7 +116,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "home-basic-cable",
     name: "Connect More 150",
-    provider: "Core Connect Network",
+    provider: "CoreConnect Networks",
     speed: "150 Mbps",
     speedMbps: 150,
     price: 29.99,
@@ -126,7 +126,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
       "Great for 1-3 devices",
       "12-month promo pricing",
       "Flexible self-install option",
-      "Access to millions of Core Connect Wi-Fi hotspots"
+      "Access to millions of CoreConnect Wi-Fi hotspots"
     ],
     popular: false,
     contract: "Month-to-month",
@@ -136,7 +136,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "home-unlimited-5g",
     name: "5G Home Internet Plus",
-    provider: "Core Connect Network",
+    provider: "CoreConnect Networks",
     speed: "300 Mbps",
     speedMbps: 300,
     price: 45,
@@ -146,7 +146,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
       "No lines to install, instant setup",
       "Consistent 300 Mbps wireless speed",
       "Free 5G receiver and Wi-Fi hub",
-      "Discounted with Core Connect Mobile Unlimited plans"
+      "Discounted with CoreConnect Mobile Unlimited plans"
     ],
     popular: false,
     contract: "Month-to-month",
@@ -158,7 +158,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "business-starter-fiber",
     name: "Business Fiber 300",
-    provider: "Core Connect Network",
+    provider: "CoreConnect Networks",
     speed: "300 Mbps",
     speedMbps: 300,
     price: 69.99,
@@ -178,7 +178,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "business-growth-cable",
     name: "Business Cable 1G",
-    provider: "Core Connect Network",
+    provider: "CoreConnect Networks",
     speed: "1 Gbps",
     speedMbps: 1000,
     price: 139.99,
@@ -198,7 +198,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "business-enterprise-fiber",
     name: "Elite Business Fiber 1G",
-    provider: "Core Connect Network",
+    provider: "CoreConnect Networks",
     speed: "1 Gbps",
     speedMbps: 1000,
     price: 175,
@@ -218,7 +218,7 @@ export const INTERNET_PLANS: InternetPlan[] = [
   {
     id: "business-premium-fios",
     name: "Enterprise Business Gigabit",
-    provider: "Core Connect Network",
+    provider: "CoreConnect Networks",
     speed: "940 Mbps",
     speedMbps: 940,
     price: 129.99,
@@ -242,7 +242,7 @@ export const TESTIMONIALS_LIST: Testimonial[] = [
     id: "t1",
     name: "Sarah Jenkins",
     role: "Freelance Creative Director",
-    content: "Core Connect Network helped me analyze different high-speed options in my neighborhood. I selected the Essential Fiber 300 plan, and their expert interface saved me at least $30 a month while getting twice the speed I had before. Genuinely outstanding experience!",
+    content: "CoreConnect Networks helped me analyze different high-speed options in my neighborhood. I selected the Essential Fiber 300 plan, and their expert interface saved me at least $30 a month while getting twice the speed I had before. Genuinely outstanding experience!",
     rating: 5,
     verified: true,
     location: "Austin, TX",
@@ -252,7 +252,7 @@ export const TESTIMONIALS_LIST: Testimonial[] = [
     id: "t2",
     name: "Michael Chen",
     role: "Co-Founder, Slate Studio",
-    content: "We needed dedicated enterprise connection with reliable static IPs for our small design agency. Core Connect's business advisors laid out all options side-by-side and secured us an exclusive rate on Elite Business Fiber. 10/10 experience.",
+    content: "We needed dedicated enterprise connection with reliable static IPs for our small design agency. CoreConnect's business advisors laid out all options side-by-side and secured us an exclusive rate on Elite Business Fiber. 10/10 experience.",
     rating: 5,
     verified: true,
     location: "Boston, MA",
@@ -272,7 +272,7 @@ export const TESTIMONIALS_LIST: Testimonial[] = [
     id: "t4",
     name: "David Vance",
     role: "Father of Three & Streamer",
-    content: "Our household streams in 4K on multiple screens while I stream gaming on Twitch. Core Connect advised us on our high-speed Fiber Bundle. Savings are real, and no hidden fees cropped up. It was exactly as quoted.",
+    content: "Our household streams in 4K on multiple screens while I stream gaming on Twitch. CoreConnect advised us on our high-speed Fiber Bundle. Savings are real, and no hidden fees cropped up. It was exactly as quoted.",
     rating: 4,
     verified: true,
     location: "Phoenix, AZ",
@@ -283,13 +283,13 @@ export const TESTIMONIALS_LIST: Testimonial[] = [
 export const FAQ_LIST: FAQItem[] = [
   {
     id: "faq-1",
-    question: "How does Core Connect Network determine available plans in my area?",
+    question: "How does CoreConnect Networks determine available plans in my area?",
     answer: "We integrate directly with active infrastructure databases to aggregate regional coverage mappings in real-time. When you enter your address or ZIP code, we check active regional cable routes, fiber lines, and wireless transmitter ranges to deliver precise, available offerings at your specific door.",
     category: "plans"
   },
   {
     id: "faq-2",
-    question: "Are the prices shown on Core Connect the same as buying directly from the provider?",
+    question: "Are the prices shown on CoreConnect the same as buying directly from the provider?",
     answer: "Yes, and often lower! Because of our wholesale agreements and advisory partnerships, we present official retail rates alongside exclusive promotions and bundles that you might not find directly on public provider sites. We never add hidden service markups or consulting fees.",
     category: "pricing"
   },
@@ -302,7 +302,7 @@ export const FAQ_LIST: FAQItem[] = [
   {
     id: "faq-4",
     question: "Do I have to sign an annual contract to get these deals?",
-    answer: "Many modern network plans have moved to monthly billing with zero contracts (such as Core Connect Fiber). However, some commercial connections still utilize 1-year or 2-year service agreements in exchange for fixed pricing guarantees. We explicitly highlight contract status on every single plan card.",
+    answer: "Many modern network plans have moved to monthly billing with zero contracts (such as CoreConnect Fiber). However, some commercial connections still utilize 1-year or 2-year service agreements in exchange for fixed pricing guarantees. We explicitly highlight contract status on every single plan card.",
     category: "plans"
   },
   {

@@ -9,7 +9,7 @@ interface GeminiChatbotProps {
 }
 
 const PRESET_QUESTIONS = [
-  "Which Core Connect plan has the best fiber internet?",
+  "Which CoreConnect plan has the best fiber internet?",
   "What is the cheapest plan for home internet?",
   "Recommend a business plan for WFH remote workers",
   "How can I save money by bundling TV and Internet?"
@@ -20,7 +20,7 @@ export default function GeminiChatbot({ isOpen, onClose, onSelectPlanFromChat }:
     {
       id: "welcome",
       role: "model",
-      text: "### 👋 Welcome to the Core Connect Advisory Panel!\n\nI am your **AI Network Advisor**, powered by Gemini. I can help you analyze speed-per-dollar ratios, evaluate different Core Connect network tiers, and select the optimal technology (Fiber, Cable, or 5G) for your home or office.\n\n*What kind of connectivity needs do you have today?*",
+      text: "### 👋 Welcome to the CoreConnect Advisory Panel!\n\nI am your **AI Network Advisor**, powered by Gemini. I can help you analyze speed-per-dollar ratios, evaluate different CoreConnect network tiers, and select the optimal technology (Fiber, Cable, or 5G) for your home or office.\n\n*What kind of connectivity needs do you have today?*",
       timestamp: new Date()
     }
   ]);
@@ -255,7 +255,7 @@ export default function GeminiChatbot({ isOpen, onClose, onSelectPlanFromChat }:
         </div>
         
         <p className="text-[10px] text-center text-text-secondary font-mono opacity-50">
-          Core Connect Advisory LLC • 2026 Engine
+          CoreConnect Advisory LLC • 2026 Engine
         </p>
       </div>
 

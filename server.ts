@@ -70,31 +70,31 @@ const saveLeads = () => {
 
 // Static list of ZIPs covered by our premium network
 const COVERED_ZIPS: Record<string, string[]> = {
-  "90001": ["Core Connect Fiber", "Core Connect Cable", "Core Connect Regional"],
-  "10001": ["Core Connect Fiber", "Core Connect Cable", "Core Connect 5G Wireless", "Core Connect Premium"],
-  "30301": ["Core Connect Fiber", "Core Connect Cable"],
-  "60601": ["Core Connect Fiber", "Core Connect 5G Wireless", "Core Connect Cable"],
-  "77001": ["Core Connect Fiber", "Core Connect Cable"],
-  "33101": ["Core Connect Fiber", "Core Connect 5G Wireless", "Core Connect Regional"],
-  "75201": ["Core Connect Fiber", "Core Connect Regional", "Core Connect Cable"],
-  "85001": ["Core Connect Cable", "Core Connect Fiber", "Core Connect Regional"],
-  "90210": ["Core Connect Regional", "Core Connect Cable"],
-  "19101": ["Core Connect Fiber", "Core Connect Cable"],
-  "02101": ["Core Connect Fiber", "Core Connect Cable"],
-  "02111": ["Core Connect Fiber", "Core Connect Cable", "Core Connect 5G Wireless", "Core Connect Premium"],
-  "20001": ["Core Connect Fiber"],
-  "94101": ["Core Connect Cable"],
-  "98101": ["Core Connect Cable"],
-  "80201": ["Core Connect Cable"],
-  "07001": ["Core Connect Cable"],
-  "11701": ["Core Connect Cable"],
-  "10501": ["Core Connect Cable"],
-  "06801": ["Core Connect Cable"],
-  "92101": ["Core Connect Cable"],
-  "89101": ["Core Connect Cable"],
-  "70101": ["Core Connect Cable"],
-  "67201": ["Core Connect Cable"],
-  "23501": ["Core Connect Cable"]
+  "90001": ["CoreConnect Fiber", "CoreConnect Cable", "CoreConnect Regional"],
+  "10001": ["CoreConnect Fiber", "CoreConnect Cable", "CoreConnect 5G Wireless", "CoreConnect Premium"],
+  "30301": ["CoreConnect Fiber", "CoreConnect Cable"],
+  "60601": ["CoreConnect Fiber", "CoreConnect 5G Wireless", "CoreConnect Cable"],
+  "77001": ["CoreConnect Fiber", "CoreConnect Cable"],
+  "33101": ["CoreConnect Fiber", "CoreConnect 5G Wireless", "CoreConnect Regional"],
+  "75201": ["CoreConnect Fiber", "CoreConnect Regional", "CoreConnect Cable"],
+  "85001": ["CoreConnect Cable", "CoreConnect Fiber", "CoreConnect Regional"],
+  "90210": ["CoreConnect Regional", "CoreConnect Cable"],
+  "19101": ["CoreConnect Fiber", "CoreConnect Cable"],
+  "02101": ["CoreConnect Fiber", "CoreConnect Cable"],
+  "02111": ["CoreConnect Fiber", "CoreConnect Cable", "CoreConnect 5G Wireless", "CoreConnect Premium"],
+  "20001": ["CoreConnect Fiber"],
+  "94101": ["CoreConnect Cable"],
+  "98101": ["CoreConnect Cable"],
+  "80201": ["CoreConnect Cable"],
+  "07001": ["CoreConnect Cable"],
+  "11701": ["CoreConnect Cable"],
+  "10501": ["CoreConnect Cable"],
+  "06801": ["CoreConnect Cable"],
+  "92101": ["CoreConnect Cable"],
+  "89101": ["CoreConnect Cable"],
+  "70101": ["CoreConnect Cable"],
+  "67201": ["CoreConnect Cable"],
+  "23501": ["CoreConnect Cable"]
 };
 
 // API Route: Check Availability
@@ -115,19 +115,19 @@ app.post("/api/check-availability", (req, res) => {
     
     if (/[A-Z]/.test(cleanedZip)) {
       // Alphanumeric - e.g. UK (SW1A 1AA), Canada (K1A 0B1), European codes
-      const globalProviders = ["Core Connect Global Fibre", "Core Connect Euro Link", "Core Connect Direct Link", "Core Connect Superfast Fibre", "Core Connect Universal"];
+      const globalProviders = ["CoreConnect Global Fibre", "CoreConnect Euro Link", "CoreConnect Direct Link", "CoreConnect Superfast Fibre", "CoreConnect Universal"];
       const count = (seed % 3) + 2; // 2 to 4 providers
       const shuffled = [...globalProviders].sort(() => 0.5 - (seed % 13) / 13);
       finalProviders = shuffled.slice(0, count);
     } else if (/^\d{6}$/.test(cleanedZip)) {
       // 6-digit numeric - e.g. India (110001, 400001), China, etc.
-      const indiaProviders = ["Core Connect Jio Link", "Core Connect Xstream", "Core Connect Tata Link", "Core Connect Bharat Fiber"];
+      const indiaProviders = ["CoreConnect Jio Link", "CoreConnect Xstream", "CoreConnect Tata Link", "CoreConnect Bharat Fiber"];
       const count = (seed % 2) + 2; // 2 to 3 providers
       const shuffled = [...indiaProviders].sort(() => 0.5 - (seed % 11) / 11);
       finalProviders = shuffled.slice(0, count);
     } else {
       // 5-digit numeric or others - e.g. US, Germany, etc.
-      const usProviders = ["Core Connect Fiber", "Core Connect Cable", "Core Connect 5G Wireless", "Core Connect Regional Net", "Core Connect Elite"];
+      const usProviders = ["CoreConnect Fiber", "CoreConnect Cable", "CoreConnect 5G Wireless", "CoreConnect Regional Net", "CoreConnect Elite"];
       const count = (seed % 3) + 2; // 2 to 4 providers
       const shuffled = [...usProviders].sort(() => 0.5 - (seed % 7) / 7);
       finalProviders = shuffled.slice(0, count);
@@ -218,7 +218,7 @@ function getSmartFallbackReply(query: string): string {
   if (q.includes("best") || q.includes("recommend") || q.includes("optimal") || q.includes("choose") || q.includes("advice")) {
     return `### 📋 Expert Advisory Recommendation
 
-To get the most value out of your internet connection, here are our primary Core Connect Network (CCN) guidelines:
+To get the most value out of your internet connection, here are our primary CoreConnect Networks (CCN) guidelines:
 
 1. **For Reliability & Speed (Fiber)**:
    - Our **Essential Fiber 300** or **Elite Gigabit Plan** is always our top recommendation.
@@ -229,16 +229,16 @@ To get the most value out of your internet connection, here are our primary Core
    - **5G Home Internet Plus** is a stellar alternative at **$45.00/mo** with zero contract restrictions and a 4-year price lock.
 
 3. **Check Your Location**:
-   - Internet service is highly geographic. Use our **ZIP Code Checker** on the homepage to find exactly which Core Connect high-speed networks reach your specific address!`;
+   - Internet service is highly geographic. Use our **ZIP Code Checker** on the homepage to find exactly which CoreConnect high-speed networks reach your specific address!`;
   }
 
   if (q.includes("cheap") || q.includes("cost") || q.includes("price") || q.includes("budget") || q.includes("save") || q.includes("promo") || q.includes("deal") || q.includes("discount")) {
     return `### 💰 Best Budget & Savings Options
 
-We have analyzed active plan databases to find the lowest-cost Core Connect Network options this month:
+We have analyzed active plan databases to find the lowest-cost CoreConnect Networks options this month:
 
 *   **Connect More 150**: Starts at **$29.99/mo** (best overall value for light browsing).
-*   **Core Connect Advantage**: Starts at **$30.00/mo** for 300 Mbps. Featuring **no contracts** and unlimited data.
+*   **CoreConnect Advantage**: Starts at **$30.00/mo** for 300 Mbps. Featuring **no contracts** and unlimited data.
 *   **5G Home Internet Plus**: Starts at **$45.00/mo** (includes free equipment and a 4-year fixed rate).
 *   **Essential Fiber 300**: Starts at **$55.00/mo** (highest quality symmetrical connection, outstanding value).
 
@@ -249,7 +249,7 @@ Bundling internet with **TV / Streaming** or **Unlimited Mobile lines** can save
   if (q.includes("fiber") || q.includes("cable") || q.includes("5g") || q.includes("technology") || q.includes("coax")) {
     return `### ⚡ Understanding Connection Technologies
 
-Not all internet connections are created equal. Here is how our Core Connect Network options compare:
+Not all internet connections are created equal. Here is how our CoreConnect Networks options compare:
 
 1.  **Fiber-to-the-Home (FTTH)**:
     *   **Tiers**: Essential Fiber 300, Elite Gigabit Plan.
@@ -266,11 +266,11 @@ Not all internet connections are created equal. Here is how our Core Connect Net
   }
 
   if (q.includes("at&t") || q.includes("att") || q.includes("verizon") || q.includes("fios") || q.includes("xfinity") || q.includes("comcast") || q.includes("frontier") || q.includes("earthlink") || q.includes("optimum") || q.includes("cox") || q.includes("spectrum")) {
-    return `### 🌐 Core Connect Network Advisory Focus
+    return `### 🌐 CoreConnect Networks Advisory Focus
 
-At **Core Connect Network (CCN)**, we provide custom-engineered high-performance plans direct to your home or office. We focus exclusively on our proprietary connection suites rather than external third-party carriers to guarantee the highest quality service, contract-free pricing, and zero hidden fees.
+At **CoreConnect Networks (CCN)**, we provide custom-engineered high-performance plans direct to your home or office. We focus exclusively on our proprietary connection suites rather than external third-party carriers to guarantee the highest quality service, contract-free pricing, and zero hidden fees.
 
-Here are our top-rated Core Connect Network options:
+Here are our top-rated CoreConnect Networks options:
 *   **Essential Fiber 300**: **$55.00/mo** (symmetrical speeds, perfect for multiple 4K streams and remote work).
 *   **Elite Gigabit Plan**: **$89.99/mo** (pure symmetrical Fiber-optic gigabit, lowest latency for gaming).
 *   **5G Home Internet Plus**: **$45.00/mo** (completely wireless, easy 5-minute setup, 4-year fixed rate).
@@ -282,9 +282,9 @@ Which connection technology would you like to explore for your address?`;
   if (q.includes("business") || q.includes("wfh") || q.includes("remote") || q.includes("office") || q.includes("work")) {
     return `### 🏢 High-Speed Business & WFH Plans
 
-For power users, home businesses, or small offices, Core Connect Network offers professional-grade connections with essential perks:
+For power users, home businesses, or small offices, CoreConnect Networks offers professional-grade connections with essential perks:
 
-*   **Core Connect Business 1G**: Starts at **$139.99/mo** (includes static IP availability, 99.9% uptime SLAs, and 24/7 dedicated enterprise support).
+*   **CoreConnect Business 1G**: Starts at **$139.99/mo** (includes static IP availability, 99.9% uptime SLAs, and 24/7 dedicated enterprise support).
 *   **Elite Business Fiber 1G**: Starts at **$175.00/mo** (symmetrical enterprise fiber with 5 static IPs and premium SLAs).
 *   **Business Fiber 300**: Starts at **$69.99/mo** (symmetrical fiber speed, ideal for growing teams).
 
@@ -297,12 +297,12 @@ For power users, home businesses, or small offices, Core Connect Network offers 
   if (q.includes("zip") || q.includes("pincode") || q.includes("pin") || q.includes("address") || q.includes("location") || q.includes("checker") || q.includes("detect")) {
     return `### 📍 Find Plan Availability in Your ZIP Code
 
-Because broadband coverage varies block-by-block, the best way to get exact Core Connect Network options is using our real-time checker:
+Because broadband coverage varies block-by-block, the best way to get exact CoreConnect Networks options is using our real-time checker:
 
 1.  Scroll up to the **ZIP Availability Checker** section on the homepage.
 2.  Select **"Detect My Location"** or enter your exact **ZIP/Pin Code** manually.
 3.  Click **"Verify High-Speed Coverage"**.
-4.  Our engine will instantly display all active Core Connect Fiber, Cable, and 5G connection routes that reach your specific home or office!`;
+4.  Our engine will instantly display all active CoreConnect Fiber, Cable, and 5G connection routes that reach your specific home or office!`;
   }
 
   if (q.includes("bundle") || q.includes("tv") || q.includes("channel") || q.includes("phone") || q.includes("mobile")) {
@@ -318,14 +318,14 @@ Let me know if you would like me to draft a custom bundle proposal for you!`;
   }
 
   if (q.includes("hello") || q.includes("hi") || q.includes("hey") || q.includes("greetings") || q.includes("welcome")) {
-    return `### 👋 Welcome to the Core Connect Advisory Panel!
+    return `### 👋 Welcome to the CoreConnect Advisory Panel!
 
 I am your **AI Network Advisor**. I am here to help you navigate our high-performance plans, check active coverage in your ZIP code, and select the best setup.
 
 Here are a few quick things we can do together:
 *   Compare **Fiber vs Cable** speeds and latencies.
 *   Find the **lowest-cost** starter plans in your region.
-*   Analyze **Core Connect** packages and bundles.
+*   Analyze **CoreConnect** packages and bundles.
 *   Design a custom **Business / Work-From-Home** connection suite.
 
 What kind of internet speed or budget goals do you have today?`;
@@ -378,15 +378,15 @@ app.post("/api/chat", async (req, res) => {
     const modelToUse = highThinking ? "gemini-3.1-pro-preview" : "gemini-3.5-flash";
 
     // System instruction for the advisory persona
-    const systemInstruction = `You are "Core Connect Advisory Agent", a professional, elite advisor for Core Connect Network LLC.
-Your objective is to help home and business owners discover, compare, and lock in our high-performance Core Connect internet, TV, and phone plans.
-We do NOT advise on third-party carriers like AT&T, Spectrum, Verizon, Xfinity, Frontier, EarthLink, Optimum, or Cox. If asked about them, politely explain that we offer custom-engineered Core Connect Network plans which deliver superior speed, stable performance, contract-free freedom, and locked-in rates.
+    const systemInstruction = `You are "CoreConnect Advisory Agent", a professional, elite advisor for CoreConnect Networks LLC.
+Your objective is to help home and business owners discover, compare, and lock in our high-performance CoreConnect internet, TV, and phone plans.
+We do NOT advise on third-party carriers like AT&T, Spectrum, Verizon, Xfinity, Frontier, EarthLink, Optimum, or Cox. If asked about them, politely explain that we offer custom-engineered CoreConnect Networks plans which deliver superior speed, stable performance, contract-free freedom, and locked-in rates.
 
 CRITICAL PLAN KNOWLEDGE FOR ADVISORY MATCHING:
-1. Core Connect Fiber Series: High-performance pure Fiber. Symmetrical upload/downloads. Essential Fiber 300 ($55/mo) and Elite Gigabit Plan ($89.99/mo). Perfect for smart homes, gaming, and remote offices.
-2. Core Connect Cable Series: Dynamic broadband cable. Speed 500 ($49.99/mo) and Connect More 150 ($29.99/mo). Highly affordable and widely available.
-3. Core Connect 5G Wireless Series: 5G Home Internet Plus ($45/mo). Plug-and-play setup, no lines to install, 4-year price lock.
-4. Core Connect Business Series: Professional-grade service. Business Fiber 300 ($69.99/mo) and Core Connect Business 1G ($139.99/mo). Comes with 24/7 dedicated support and static IP capabilities.
+1. CoreConnect Fiber Series: High-performance pure Fiber. Symmetrical upload/downloads. Essential Fiber 300 ($55/mo) and Elite Gigabit Plan ($89.99/mo). Perfect for smart homes, gaming, and remote offices.
+2. CoreConnect Cable Series: Dynamic broadband cable. Speed 500 ($49.99/mo) and Connect More 150 ($29.99/mo). Highly affordable and widely available.
+3. CoreConnect 5G Wireless Series: 5G Home Internet Plus ($45/mo). Plug-and-play setup, no lines to install, 4-year price lock.
+4. CoreConnect Business Series: Professional-grade service. Business Fiber 300 ($69.99/mo) and CoreConnect Business 1G ($139.99/mo). Comes with 24/7 dedicated support and static IP capabilities.
 
 TONE & STYLE:
 - Professional, analytical, helpful, welcoming.
@@ -467,7 +467,7 @@ async function startServer() {
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Core Connect Network server running at http://localhost:${PORT}`);
+    console.log(`CoreConnect Networks server running at http://localhost:${PORT}`);
   });
 }
 

@@ -324,7 +324,7 @@ export default function AvailabilityChecker({
               Check Instant Availability
             </h2>
             <p className="text-lg text-text-secondary mb-8">
-              Core Connect matches your exact street address with the physical fiber grids, copper telephone cables, and 5G nodes of all leading regional providers.
+              CoreConnect matches your exact street address with the physical fiber grids, copper telephone cables, and 5G nodes of all leading regional providers.
             </p>
 
             {/* Interactive Vector Grid Illustration */}
@@ -577,7 +577,7 @@ export default function AvailabilityChecker({
                       <CheckCircle2 className="h-8 w-8 text-primary mx-auto" />
                       <h5 className="font-bold text-text-primary">Quote Request Submitted!</h5>
                       <p className="text-xs text-text-secondary">
-                        Thank you! An expert Core Connect network advisor is reviewing your ZIP options and will reach out to you within 15 minutes.
+                        Thank you! An expert CoreConnect network advisor is reviewing your ZIP options and will reach out to you within 15 minutes.
                       </p>
                       <button
                         onClick={() => setResult(null)}

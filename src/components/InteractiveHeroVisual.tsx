@@ -107,7 +107,7 @@ export default function InteractiveHeroVisual() {
         <div className="absolute inset-0 select-none p-1.5 overflow-hidden rounded-[32px]">
           <img
             src="/src/assets/images/network_globe_hub_1783928987319.jpg"
-            alt="Core Connect Interactive Globe"
+            alt="CoreConnect Interactive Globe"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover rounded-[26px] opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out border border-white/5"
           />
@@ -169,7 +169,7 @@ export default function InteractiveHeroVisual() {
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-white tracking-tight flex items-center gap-1.5">
               <Cpu className="h-3.5 w-3.5 text-cyan-400" />
-              Core Connect Network Hub
+              CoreConnect Networks Hub
             </span>
             <span className="text-[9px] font-extrabold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">
               ACTIVE

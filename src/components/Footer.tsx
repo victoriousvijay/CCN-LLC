@@ -33,7 +33,7 @@ export default function Footer({ onChangePage }: FooterProps) {
             </span>
           </div>
           <p className="text-xs text-text-secondary max-w-sm leading-relaxed">
-            Core Connect Network LLC is a leading independent telecom comparison and consulting platform. We aggregate regional databases to advise home owners and businesses on the best connectivity packages.
+            CoreConnect Networks LLC is a leading independent telecom comparison and consulting platform. We aggregate regional databases to advise home owners and businesses on the best connectivity packages.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function Footer({ onChangePage }: FooterProps) {
             <li className="flex items-start gap-2">
               <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
               <span>
-                Core Connect Network LLC<br />
+                CoreConnect Networks LLC<br />
                 68 Harrison Ave Ste 605<br />
                 Boston, MA 02111-1929
               </span>
@@ -103,10 +103,10 @@ export default function Footer({ onChangePage }: FooterProps) {
         {/* Compliance Boilerplate */}
         <div className="text-[10px] text-text-secondary/60 leading-relaxed space-y-3 mb-8">
           <p>
-            <strong>Advisory Disclaimer:</strong> Core Connect Network LLC is a privately owned and operated marketing platform. All trademarks, logos, and brand names of national and regional telecom carriers are the exclusive property of their respective owners. Mention of services does not imply direct carrier endorsement, affiliation, or sponsorship. Actual connection speeds, latencies, and promotion availability vary by street address and technical parameters. All prices, terms, contract structures, and promo details listed are subject to final credit approval and carrier policy modifications.
+            <strong>Advisory Disclaimer:</strong> CoreConnect Networks LLC is a privately owned and operated marketing platform. All trademarks, logos, and brand names of national and regional telecom carriers are the exclusive property of their respective owners. Mention of services does not imply direct carrier endorsement, affiliation, or sponsorship. Actual connection speeds, latencies, and promotion availability vary by street address and technical parameters. All prices, terms, contract structures, and promo details listed are subject to final credit approval and carrier policy modifications.
           </p>
           <p>
-            © {new Date().getFullYear()} Core Connect Network LLC. All rights reserved. Built for authorized marketing deployment.
+            © {new Date().getFullYear()} CoreConnect Networks LLC. All rights reserved. Built for authorized marketing deployment.
           </p>
         </div>
 

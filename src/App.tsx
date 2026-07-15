@@ -224,7 +224,7 @@ export default function App() {
               handlePageChange("checker");
             }} />
 
-            {/* 4. WHY CHOOSE CORE CONNECT */}
+            {/* 4. WHY CHOOSE CORECONNECT */}
             <motion.section
               id="why-choose"
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
@@ -238,13 +238,13 @@ export default function App() {
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-20">
                   <span className="inline-block rounded-full bg-accent/5 border border-accent/20 px-4 py-1.5 text-xs font-bold text-accent uppercase tracking-wider mb-4">
-                    Core Connect Values
+                    CoreConnect Values
                   </span>
                   <h2 className="font-display text-4xl font-bold tracking-tight text-text-primary sm:text-5xl mb-4">
                     The Advisor Advantage
                   </h2>
                   <p className="text-lg text-text-secondary">
-                    Why thousands of residential and commercial subscribers trust Core Connect for comparison management.
+                    Why thousands of residential and commercial subscribers trust CoreConnect for comparison management.
                   </p>
                 </div>
 
@@ -598,12 +598,12 @@ export default function App() {
                   {[
                     {
                       id: "faq-1",
-                      q: "How does Core Connect Network determine available plans in my area?",
+                      q: "How does CoreConnect Networks determine available plans in my area?",
                       a: "We integrate directly with active infrastructure databases to aggregate regional coverage mappings in real-time. When you enter your address or ZIP code, we check active regional cable routes, fiber lines, and wireless transmitter ranges to deliver precise, available offerings at your specific door."
                     },
                     {
                       id: "faq-2",
-                      q: "Are the prices shown on Core Connect the same as buying directly from the provider?",
+                      q: "Are the prices shown on CoreConnect the same as buying directly from the provider?",
                       a: "Yes, and often lower! Because of our wholesale agreements and advisory partnerships, we present official retail rates alongside exclusive promotions and bundles that you might not find directly on public provider sites. We never add hidden service markups or consulting fees."
                     },
                     {
@@ -614,7 +614,7 @@ export default function App() {
                     {
                       id: "faq-4",
                       q: "Do I have to sign an annual contract to get these deals?",
-                      a: "Many modern network plans have moved to monthly billing with zero contracts (such as Core Connect Fiber). However, some commercial connections still utilize 1-year or 2-year service agreements in exchange for fixed pricing guarantees. We explicitly highlight contract status on every single plan card."
+                      a: "Many modern network plans have moved to monthly billing with zero contracts (such as CoreConnect Fiber). However, some commercial connections still utilize 1-year or 2-year service agreements in exchange for fixed pricing guarantees. We explicitly highlight contract status on every single plan card."
                     },
                     {
                       id: "faq-5",

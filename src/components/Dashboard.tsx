@@ -125,7 +125,7 @@ export default function Dashboard({ isOpen, onClose, refreshTrigger }: Dashboard
               <div>
                 <input
                   type="password"
-                  placeholder="Enter Advisor Passcode (Hint: CCN-2026 or admin)"
+                  placeholder="Enter Advisor Passcode"
                   value={passcodeInput}
                   onChange={(e) => setPasscodeInput(e.target.value)}
                   className="w-full px-4 py-3 bg-bg border border-border-custom rounded-xl text-center font-mono font-bold text-text-primary tracking-widest placeholder:tracking-normal placeholder:font-normal placeholder:text-text-secondary/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-sm sm:text-base"
@@ -159,7 +159,7 @@ export default function Dashboard({ isOpen, onClose, refreshTrigger }: Dashboard
             </form>
 
             <div className="text-[10px] text-text-secondary font-mono pt-4 border-t border-border-custom/50 w-full max-w-sm">
-              Strictly Confidential • Core Connect Network Security Group
+              Strictly Confidential • CoreConnect Networks Security Group
             </div>
           </div>
         ) : (
@@ -359,7 +359,7 @@ export default function Dashboard({ isOpen, onClose, refreshTrigger }: Dashboard
 
             {/* Footer */}
             <div className="p-4 border-t border-border-custom bg-bg/50 text-center text-[10px] text-text-secondary font-mono flex justify-between px-6">
-              <span>Strictly Confidential • Core Connect Security Group</span>
+              <span>Strictly Confidential • CoreConnect Security Group</span>
               <button
                 onClick={() => setIsAuthorized(false)}
                 className="hover:text-primary transition-colors cursor-pointer"

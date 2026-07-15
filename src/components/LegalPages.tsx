@@ -32,14 +32,14 @@ export function PrivacyPolicy({ onBack }: LegalPageProps) {
             Privacy Policy
           </h1>
           <p className="text-sm text-text-secondary">
-            Last updated: July 9, 2026 • Core Connect Network LLC
+            Last updated: July 9, 2026 • CoreConnect Networks LLC
           </p>
         </div>
 
         {/* Body content */}
         <div className="prose prose-slate max-w-none text-text-secondary space-y-6 leading-relaxed">
           <p className="text-base text-text-primary font-medium">
-            At Core Connect Network LLC ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy describes how we collect, use, and disclose your personal information when you use our platform to analyze and match telecommunications plans.
+            At CoreConnect Networks LLC ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy describes how we collect, use, and disclose your personal information when you use our platform to analyze and match telecommunications plans.
           </p>
 
           <section className="space-y-3 pt-4">
@@ -79,7 +79,7 @@ export function PrivacyPolicy({ onBack }: LegalPageProps) {
               Information Sharing and Disclosures
             </h2>
             <p className="text-sm">
-              Core Connect Network LLC does not sell your private contact details to independent cold-marketing lists. Your information is only shared under the following strict compliance conditions:
+              CoreConnect Networks LLC does not sell your private contact details to independent cold-marketing lists. Your information is only shared under the following strict compliance conditions:
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-sm">
               <li><strong>Authorized Carriers:</strong> When you express interest in a plan, we submit details securely to the respective provider to finalize your physical connection eligibility and contract rates.</li>
@@ -161,14 +161,14 @@ export function TermsAndConditions({ onBack }: LegalPageProps) {
             Terms of Service
           </h1>
           <p className="text-sm text-text-secondary">
-            Last updated: July 9, 2026 • Core Connect Network LLC
+            Last updated: July 9, 2026 • CoreConnect Networks LLC
           </p>
         </div>
 
         {/* Body content */}
         <div className="prose prose-slate max-w-none text-text-secondary space-y-6 leading-relaxed">
           <p className="text-base text-text-primary font-medium">
-            Welcome to Core Connect Network LLC. By using our website, availability check modules, and interactive AI consultation tools, you agree to comply with and be bound by the following Terms & Conditions. Please read them thoroughly.
+            Welcome to CoreConnect Networks LLC. By using our website, availability check modules, and interactive AI consultation tools, you agree to comply with and be bound by the following Terms & Conditions. Please read them thoroughly.
           </p>
 
           <section className="space-y-3 pt-4">
@@ -177,7 +177,7 @@ export function TermsAndConditions({ onBack }: LegalPageProps) {
               Agreement and Scope
             </h2>
             <p className="text-sm">
-              These terms constitute a legally binding agreement between you ("User" or "Client") and Core Connect Network LLC ("Company"). If you do not agree with any section of these terms, you are requested to cease using our portal or submitting address availability inquiries.
+              These terms constitute a legally binding agreement between you ("User" or "Client") and CoreConnect Networks LLC ("Company"). If you do not agree with any section of these terms, you are requested to cease using our portal or submitting address availability inquiries.
             </p>
           </section>
 
@@ -187,7 +187,7 @@ export function TermsAndConditions({ onBack }: LegalPageProps) {
               Advisory Role and Disclaimer of Liability
             </h2>
             <p className="text-sm">
-              Core Connect Network LLC operates as an independent, third-party marketing aggregator and telecom consulting platform. 
+              CoreConnect Networks LLC operates as an independent, third-party marketing aggregator and telecom consulting platform. 
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-sm">
               <li>We consolidate national coverage mapping data to give users estimates of available speeds and rates at given addresses.</li>
@@ -217,7 +217,7 @@ export function TermsAndConditions({ onBack }: LegalPageProps) {
               Intellectual Property Rights
             </h2>
             <p className="text-sm">
-              The proprietary visual styling, logo combinations, 3D Canvas Globe rendering algorithms, custom comparative specifications logic, and system configurations are protected under domestic copyright, trademark, and patents laws of Core Connect Network LLC. You are prohibited from copying, distributing, or republishing our interactive assets without prior written consent.
+              The proprietary visual styling, logo combinations, 3D Canvas Globe rendering algorithms, custom comparative specifications logic, and system configurations are protected under domestic copyright, trademark, and patents laws of CoreConnect Networks LLC. You are prohibited from copying, distributing, or republishing our interactive assets without prior written consent.
             </p>
           </section>
 
@@ -227,7 +227,7 @@ export function TermsAndConditions({ onBack }: LegalPageProps) {
               Governing Law and Disputes
             </h2>
             <p className="text-sm">
-              These Terms & Conditions shall be governed by, and construed in accordance with, the state legislation where Core Connect Network LLC is registered, without reference to conflict-of-law principles. Any legal complaints or arbitration filings relating directly to platform usage must be initiated exclusively in designated courts of proper jurisdiction.
+              These Terms & Conditions shall be governed by, and construed in accordance with, the state legislation where CoreConnect Networks LLC is registered, without reference to conflict-of-law principles. Any legal complaints or arbitration filings relating directly to platform usage must be initiated exclusively in designated courts of proper jurisdiction.
             </p>
           </section>
         </div>

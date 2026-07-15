@@ -212,7 +212,7 @@ export default function FiberPlansHomepage({ onSelectPlan }: { onSelectPlan: (pl
                 {/* CTA Action button in footer of card */}
                 <div className="p-8 pt-0">
                   <button
-                    onClick={() => onSelectPlan(plan.id, `Core Connect - ${plan.name} (${plan.speed})`)}
+                    onClick={() => onSelectPlan(plan.id, `CoreConnect - ${plan.name} (${plan.speed})`)}
                     data-cursor="quote"
                     className={`w-full flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r ${plan.accentColor} py-4 px-6 font-bold text-white shadow-lg transition-all duration-300 hover:opacity-95 hover:scale-[1.02] active:scale-95 text-xs tracking-wider uppercase cursor-pointer`}
                   >
